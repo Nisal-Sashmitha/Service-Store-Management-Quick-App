@@ -28,3 +28,6 @@ dev-dist
 .env
 .env.*
 !.env.example
+
+# Firebase local cache/state
+.firebase/
