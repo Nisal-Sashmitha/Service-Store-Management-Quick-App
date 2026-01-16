@@ -451,6 +451,88 @@ a {
   font-size: 13px;
 }
 
+.financeEntryIncome {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.22);
+}
+
+.financeEntryExpense {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.financeEntry {
+  padding: 12px;
+}
+
+.financeEntry .ticketMeta {
+  margin-top: 4px;
+}
+
+.financeEntryIncome .financeEntryType {
+  color: rgba(21, 128, 61, 0.9);
+}
+
+.financeEntryExpense .financeEntryType {
+  color: rgba(185, 28, 28, 0.9);
+}
+
+.financeEntryIncome .financeEntryName {
+  color: rgba(20, 83, 45, 0.95);
+}
+
+.financeEntryExpense .financeEntryName {
+  color: rgba(127, 29, 29, 0.95);
+}
+
+.financeEntryIncome .financeEntryAmount {
+  background: rgba(34, 197, 94, 0.18);
+  border-color: rgba(34, 197, 94, 0.26);
+  color: rgba(20, 83, 45, 0.98);
+}
+
+.financeEntryExpense .financeEntryAmount {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.24);
+  color: rgba(127, 29, 29, 0.98);
+}
+
+.financeEntry .ticketRowTop {
+  align-items: flex-start;
+}
+
+.financeEntryLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.financeEntryType {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.1;
+}
+
+.financeEntryName {
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.financeEntryAmount {
+  font-size: 16px;
+  font-weight: 950;
+  padding: 6px 10px;
+}
+
+.financeEntry .ticketMeta .dot,
+.financeEntry .ticketMeta .dot + .mutedSmall {
+  display: none;
+}
+
 .fabGroup {
   position: fixed;
   right: 16px;
@@ -460,6 +542,7 @@ a {
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  pointer-events: none;
 }
 
 .fabMain {
@@ -475,6 +558,7 @@ a {
   font-size: 28px;
   font-weight: 950;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .fabActions {
@@ -499,6 +583,7 @@ a {
   background: transparent;
   padding: 0;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .fabMini {

@@ -207,9 +207,12 @@ export function FinancePage() {
       <section className="stack">
         {sortedEntries.length ? (
           sortedEntries.map((e) => (
-            <div key={e.id} className="ticketRow">
+            <div
+              key={e.id}
+              className={`ticketRow financeEntry ${e.type === 'INCOME' ? 'financeEntryIncome' : 'financeEntryExpense'}`}
+            >
               <div className="ticketRowTop">
-                <div className="row" style={{ gap: 12 }}>
+                <div className="row" style={{ gap: 10 }}>
                   {e.type === 'INCOME' ? (
                     <label className="checkboxInline">
                       <input
@@ -228,9 +231,16 @@ export function FinancePage() {
                   ) : (
                     <span style={{ width: 22 }} />
                   )}
-                  <div className="ticketName">{e.type === 'INCOME' ? 'Income' : 'Expense'}</div>
+                  <div className="financeEntryLeft">
+                    <div className="financeEntryType">{e.type === 'INCOME' ? 'Income' : 'Expense'}</div>
+                    <div className="financeEntryName">{e.type === 'INCOME' ? e.serviceName ?? '-' : e.reason ?? '-'}</div>
+                  </div>
                 </div>
-                <span className={e.type === 'INCOME' ? 'pill pillConfirm_FULLY_CONFIRMED' : 'pill pillConfirm_PARTIALLY_CONFIRMED'}>
+                <span
+                  className={`pill financeEntryAmount ${
+                    e.type === 'INCOME' ? 'pillConfirm_FULLY_CONFIRMED' : 'pillConfirm_PARTIALLY_CONFIRMED'
+                  }`}
+                >
                   {e.amount.toFixed(0)}
                 </span>
               </div>
@@ -239,7 +249,7 @@ export function FinancePage() {
                 <span className="dot">•</span>
                 <span className="mutedSmall">{e.type === 'INCOME' ? e.serviceName ?? '—' : e.reason ?? '—'}</span>
               </div>
-              <div className="row" style={{ marginTop: 10, justifyContent: 'flex-end' }}>
+              <div className="row" style={{ marginTop: 8, justifyContent: 'flex-end' }}>
                 <button
                   className="buttonSecondary"
                   type="button"

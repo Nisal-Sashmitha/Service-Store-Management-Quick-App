@@ -20,29 +20,7 @@ function parseDateOnly(value: string): Date | null {
   return new Date(y, m - 1, d, 0, 0, 0, 0)
 }
 
-function nextApptMillis(t: Ticket): number | null {
-  return t.nextAppointmentDateTime ? t.nextAppointmentDateTime.toMillis() : null
-}
-
 function compareTickets(a: Ticket, b: Ticket): number {
-  const now = Date.now()
-  const aAppt = nextApptMillis(a)
-  const bAppt = nextApptMillis(b)
-
-  const aHasAppt = aAppt !== null
-  const bHasAppt = bAppt !== null
-
-  if (aHasAppt !== bHasAppt) return aHasAppt ? -1 : 1
-
-  if (aHasAppt && bHasAppt) {
-    const aDelta = aAppt - now
-    const bDelta = bAppt - now
-    const aPast = aDelta < 0
-    const bPast = bDelta < 0
-    if (aPast !== bPast) return aPast ? 1 : -1
-    return aAppt - bAppt
-  }
-
   const aCreated = a.createdAt?.toMillis?.() ?? 0
   const bCreated = b.createdAt?.toMillis?.() ?? 0
   if (aCreated !== bCreated) return bCreated - aCreated
